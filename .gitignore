@@ -1,0 +1,6 @@
+gnlTester
+*.out
+*.gch
+*.o
+*.a
+*.so
