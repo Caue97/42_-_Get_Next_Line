@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 16:45:20 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/09/30 17:53:14 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # include <stdlib.h>
 # include <unistd.h> 
+
+char	*ft_strdup(const char *strin_g);
 
 char	*get_next_line(int fd);
 
