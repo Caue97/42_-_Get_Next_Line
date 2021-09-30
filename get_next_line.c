@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 16:38:10 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/09/30 17:42:08 by diazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 char	*get_next_line(int fd)
 {
-	char	*buffer;
-	int		read_bytes; //size of bytes read
+	int			read_bytes; //size of bytes read
+	char		*buffer;
+	static char	*static_var;
 
 	read_bytes = 0;
 	buffer = NULL;
@@ -28,25 +29,27 @@ char	*get_next_line(int fd)
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffer == NULL)
 		return (NULL);
+	if (!static_var)
+		box = ft_strdup("");
 	read_bytes = read(fd, buffer, BUFFER_SIZE);
 	buffer[read_bytes] = '\0';
 	return (buffer);
 }
 
-int		main(void)
+int	main(void)
 {
 	char	*str;
 	int		fd;
 
 	fd = open("poema", O_RDONLY);
-	while(1)
+	while (1)
 	{
 		str = get_next_line(fd);
 		if (!str)
-			break;
+			break ;
 		printf("%s", str);
 		//free(str);
-		break;
+		break ;
 	}
 	return (0);
 }
