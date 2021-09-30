@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 14:03:37 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:38:10 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 char	*get_next_line(int fd)
 {
 	char	*buffer;
-	ssize_t	read_bytes;
+	int		read_bytes; //size of bytes read
 
 	read_bytes = 0;
 	buffer = NULL;
 	if (fd < 0 || read(fd, NULL, 0) == -1 || BUFFER_SIZE < 1 || buffer == NULL)
-	{
 		return (NULL);
-	}
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (buffer == NULL)
+		return (NULL);
 	read_bytes = read(fd, buffer, BUFFER_SIZE);
 	buffer[read_bytes] = '\0';
-	return(buffer);
+	return (buffer);
 }
 
 int		main(void)
