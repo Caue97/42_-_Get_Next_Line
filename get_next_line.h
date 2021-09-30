@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 13:09:43 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/09/30 13:39:40 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h> 
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
