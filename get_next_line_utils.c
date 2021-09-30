@@ -6,8 +6,10 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:50 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 12:35:53 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/09/30 14:03:45 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//ATENÇÂO AO HEADER
 
 #include "get_next_line.h"
