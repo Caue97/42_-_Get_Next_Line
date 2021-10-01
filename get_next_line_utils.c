@@ -6,31 +6,13 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:50 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 19:15:45 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/09/30 21:07:14 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //ATENÇÂO AO HEADER
 
 #include "get_next_line.h"
-
-void	*ft_memcpy(char *copy, const void *original, size_t length)
-{
-	unsigned char	*source;
-	unsigned char	*destiny;
-
-	if (original == NULL && copy == NULL)
-	{
-		return (copy);
-	}
-	destiny = (unsigned char *) copy;
-	source = (unsigned char *) original;
-	while (length--)
-	{
-		*destiny++ = *source++;
-	}
-	return (copy);
-}
 
 size_t	ft_strlen(const char *str)
 {
@@ -50,8 +32,10 @@ size_t	ft_strlen(const char *str)
 
 char	*ft_strdup(const char *strin_g)
 {
-	size_t	length;
-	char	*new_cpy;
+	size_t			length;
+	char			*new_cpy;
+	unsigned char	*mem_sour;
+	unsigned char	*mem_des;
 
 	length = ft_strlen(strin_g) + 1;
 	new_cpy = malloc(length);
@@ -59,53 +43,44 @@ char	*ft_strdup(const char *strin_g)
 	{
 		return (0);
 	}
-	return (ft_memcpy(new_cpy, strin_g, length));
-}
-
-size_t	ft_strlcpy(char *copy, const char *original, size_t size)
-{
-	size_t	size_og;
-	size_t	counter;
-
-	size_og = ft_strlen(original);
-	counter = 0;
-	if (!original || !copy)
+	if (strin_g == NULL && new_cpy == NULL)
 	{
-		return (0);
+		return (new_cpy);
 	}
-	if (size != 0)
+	mem_des = (unsigned char *) new_cpy;
+	mem_sour = (unsigned char *) strin_g;
+	while (length--)
 	{
-		while (original[counter] != '\0' && counter < (size - 1))
-		{
-			copy[counter] = original[counter];
-			counter++;
-		}
-		copy[counter] = '\0';
+		*mem_des++ = *mem_sour++;
 	}
-	return (size_og);
+	return (new_cpy);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_strng;
 	size_t	size_og;
+	size_t	count;
 
-	size_og = ft_strlen(s);
 	if (!s)
-	{
 		return (0);
-	}
+	size_og = ft_strlen(s);
 	if (start > size_og)
-	{
 		return (ft_strdup(""));
+	if (start + len > size_og)
+	{
+		len = size_og - start;
 	}
 	sub_strng = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub_strng)
+		return (NULL);
+	count = 0;
+	while (s[start + count] && count < len)
 	{
-		return (0);
+		sub_strng[count] = s[start + count];
+		count++;
 	}
-	ft_strlcpy(sub_strng, (s + start), len + 1);
-	sub_strng[len] = '\0';
+	sub_strng[count] = '\0';
 	return (sub_strng);
 }
 
