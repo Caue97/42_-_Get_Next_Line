@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/09/30 19:18:07 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 18:05:14 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,30 @@
 #include "get_next_line.h"
 #include <fcntl.h> //DELETE FOR EVALUATION
 #include <stdio.h> //DELETE FOR EVALUATION
+
+static void free_potr_char(char **str)
+{
+	free (*str);
+	*str = NULL;
+}
+
+char	*hold_text(int fd, char *buffer, char *static_str, int *size_read)
+{
+	char	*helper;
+
+	while (!ft_strchr(static_str, '\n') && *size_read)
+	{
+		*size_read = read(fd, buffer, BUFFER_SIZE);
+		if (*size_read <= 0)
+			break ;
+		buffer[*size_read] = '\0';
+		helper = static_str;
+		static_str = ft_strjoin(helper, buffer);
+		free_potr_char(&helper);
+	}
+	free_potr_char(&buffer);
+	return (static_str);
+}
 
 char	*get_next_line(int fd)
 {
@@ -31,6 +55,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!static_var)
 		static_var = ft_strdup("");
+	
+	read_bytes = 1;
+	static_var[fd] = hold_text(fd, buffer, static_var[fd], &read_bytes);
+	
 	read_bytes = read(fd, buffer, BUFFER_SIZE);
 	buffer[read_bytes] = '\0';
 	return (buffer);

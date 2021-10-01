@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 16:08:40 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 17:54:37 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,17 @@ char	*ft_strchr(const char *strin, int char_search);
  * @return The line that was read, including '\\n', if it has multiple lines.
  * The line read without '\\n' if the file has only one line.
  * NULL if the file is empty or an error ocurred
+ */
+char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
+
+/**
+ * @brief 
+ *
+ * @param fd File descriptor that will be read and searched for '\\n'.
+ * @param buffer
+ * @param static_str
+ * @param size_read
+ * @return 
  */
 char	*get_next_line(int fd);
 
