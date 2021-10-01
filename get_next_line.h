@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 17:54:37 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 18:10:12 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  */
 char	*ft_strchr(const char *strin, int char_search);
 
-/**
- * @brief Reads a line from a file descriptor
- *
- * @param fd File descriptor to read.
- * @return The line that was read, including '\\n', if it has multiple lines.
- * The line read without '\\n' if the file has only one line.
- * NULL if the file is empty or an error ocurred
- */
-char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
+static void free_potr_char(char **str);
 
 /**
  * @brief 
@@ -98,6 +90,16 @@ char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
  * @param static_str
  * @param size_read
  * @return 
+ */
+char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
+
+/**
+ * @brief Reads a line from a file descriptor
+ *
+ * @param fd File descriptor to read.
+ * @return The line that was read, including '\\n', if it has multiple lines.
+ * The line read without '\\n' if the file has only one line.
+ * NULL if the file is empty or an error ocurred
  */
 char	*get_next_line(int fd);
 
