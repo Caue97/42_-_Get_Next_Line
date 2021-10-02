@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 21:44:14 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:52:08 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*ft_strchr(const char *strin, int char_search);
  *
  * @param str The char pointer to free
  */
-static void free_potr_char(char **str);
+static	void free_potr_char(char **str);
 
 /**
  * @brief Removes the part of the char pointer after the '\\n' (line break)

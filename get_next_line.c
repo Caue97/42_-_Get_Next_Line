@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 21:38:55 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:56:55 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static void free_potr_char(char **str)
 static char	*trim_end_line(char **strin)
 {
 	char	*cut_line;
-	size_t	counter;
 	char	*s_holder;
+	size_t	counter;
 
 	counter = 0;
 	while ((*strin)[counter] && (*strin)[counter] != '\n')
@@ -35,8 +35,8 @@ static char	*trim_end_line(char **strin)
 	}
 	s_holder = *strin;
 	cut_line = ft_substr(s_holder, 0, counter + 1);
-	*strin = ft_strdup(s_holder);
-	free_ptr(&s_holder);
+	*strin = ft_strdup(&s_holder);
+	free_potr_char(&s_holder);
 	return (cut_line);
 }
 
