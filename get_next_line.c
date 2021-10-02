@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 18:09:56 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:38:55 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ static void free_potr_char(char **str)
 {
 	free (*str);
 	*str = NULL;
+}
+
+static char	*trim_end_line(char **strin)
+{
+	char	*cut_line;
+	size_t	counter;
+	char	*s_holder;
+
+	counter = 0;
+	while ((*strin)[counter] && (*strin)[counter] != '\n')
+	{
+		counter++;
+	}
+	s_holder = *strin;
+	cut_line = ft_substr(s_holder, 0, counter + 1);
+	*strin = ft_strdup(s_holder);
+	free_ptr(&s_holder);
+	return (cut_line);
 }
 
 char	*hold_text(int fd, char *buffer, char *static_str, int *size_read)
@@ -55,13 +73,18 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!static_var)
 		static_var = ft_strdup("");
-	
 	read_bytes = 1;
 	static_var = hold_text(fd, buffer, static_var, &read_bytes);
-	
-	read_bytes = read(fd, buffer, BUFFER_SIZE);
-	buffer[read_bytes] = '\0';
-	return (buffer);
+	if (*static_var == NULL && read_bytes < 1)
+	{
+		free_potr_char(&static_var);
+		return(NULL);
+	}
+	if (ft_strchr(static_var, '\n'))
+	{
+		return (trim_end_line(static_var));
+	}
+	return (*static_var);
 }
 
 int	main(void)

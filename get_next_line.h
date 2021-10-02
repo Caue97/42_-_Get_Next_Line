@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 18:10:12 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:44:14 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,31 @@ char	*ft_strjoin(char const *s1, char const *s2);
  */
 char	*ft_strchr(const char *strin, int char_search);
 
+/**
+ * @brief Free's the memory of the char pointer received and puts it's contents 
+ * to zero
+ *
+ * @param str The char pointer to free
+ */
 static void free_potr_char(char **str);
 
 /**
- * @brief 
+ * @brief Removes the part of the char pointer after the '\\n' (line break)
+ *
+ * @param strin The string that will have it's end trimmed
+ * @return The string trimmed with everything after '\\n' removed 
+ */
+static char	*trim_end_line(char **strin);
+
+/**
+ * @brief Reads the file descriptor from a BUFFER_SIZE piece to another 
+ * until a piece that has '\\n' is found or until the end of the file.
  *
  * @param fd File descriptor that will be read and searched for '\\n'.
- * @param buffer
- * @param static_str
- * @param size_read
- * @return 
+ * @param buffer Holds the text that was read in BUFFER_SIZE
+ * @param static_str The static string that will hold the line
+ * @param size_read The size that was red from file descriptor
+ * @return The part of the file that was read 
  */
 char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
 
