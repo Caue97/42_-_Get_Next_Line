@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:50 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/02 00:15:37 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:20:33 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/02 00:13:26 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/10/02 11:45:08 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//ATENÇÂO AO HEADER
-
 #include "get_next_line.h"
-#include <fcntl.h> //DELETE FOR EVALUATION
-#include <stdio.h> //DELETE FOR EVALUATION // REMOVE MAIN
-#include <stdlib.h>
 
 /**
  * @brief Free's the memory of the char pointer received and puts it's contents 
@@ -112,20 +107,3 @@ char	*get_next_line(int fd)
 	}
 	return (get_last_line(&static_var));
 }
-
-//int	main(void)
-//{
-//	char	*str;
-//	int		fd;
-//	fd = open("poema", O_RDONLY);
-//	while (1)
-//	{
-//		str = get_next_line(fd);
-//		if (!str)
-//			break ;
-//		printf("%s", str);
-//		free(str);
-//		//break ;
-//	}
-//	return (0);
-//}
