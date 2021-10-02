@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 22:25:06 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:30:58 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 		static_var = ft_strdup("");
 	read_bytes = 1;
 	static_var = read_until_new_line(fd, buffer, static_var, &read_bytes);
-	if (*static_var == NULL && read_bytes < 1)
+	if (*static_var == '\0' && read_bytes < 1)
 	{
 		free_potr_char(&static_var);
 		return(NULL);
