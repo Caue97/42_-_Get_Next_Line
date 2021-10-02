@@ -6,11 +6,9 @@
 /*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:50 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 23:17:21 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:15:37 by diazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//ATENÇÂO AO HEADER
 
 #include "get_next_line.h"
 
@@ -61,8 +59,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub_strng;
 	size_t	size_og;
 	size_t	count;
-	
-	
+
 	if (!s)
 		return (NULL);
 	size_og = ft_strlen(s);

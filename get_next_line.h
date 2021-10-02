@@ -6,7 +6,7 @@
 /*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/02 00:05:41 by diazeved         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:13:52 by diazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*ft_strchr(const char *strin, int char_search);
  * @param size_read The size that was red from file descriptor
  * @return The part of the file that was read 
  */
-char	*read_until_new_line(int fd, char *buffer, char *static_str, int *size_read);
+char	*read_until_new_line(int fd, char *buffer, char *s_str, int *size_read);
 
 /**
  * @brief Reads a line from a file descriptor
