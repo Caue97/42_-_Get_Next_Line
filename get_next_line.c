@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 21:56:55 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:25:06 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void free_potr_char(char **str)
 	*str = NULL;
 }
 
-static char	*trim_end_line(char **strin)
+static char	*trim_other_line(char **strin)
 {
 	char	*cut_line;
 	char	*s_holder;
@@ -35,12 +35,21 @@ static char	*trim_end_line(char **strin)
 	}
 	s_holder = *strin;
 	cut_line = ft_substr(s_holder, 0, counter + 1);
-	*strin = ft_strdup(&s_holder);
+	*strin = ft_strdup(s_holder + counter + 1);
 	free_potr_char(&s_holder);
 	return (cut_line);
 }
 
-char	*hold_text(int fd, char *buffer, char *static_str, int *size_read)
+static char *get_last_line(char **strin)
+{
+	char *helping;
+	
+	helping = *strin;
+	free_potr_char(strin);
+	return (helping);
+}
+
+char	*read_until_new_line(int fd, char *buffer, char *static_str, int *size_read)
 {
 	char	*helper;
 
@@ -74,7 +83,7 @@ char	*get_next_line(int fd)
 	if (!static_var)
 		static_var = ft_strdup("");
 	read_bytes = 1;
-	static_var = hold_text(fd, buffer, static_var, &read_bytes);
+	static_var = read_until_new_line(fd, buffer, static_var, &read_bytes);
 	if (*static_var == NULL && read_bytes < 1)
 	{
 		free_potr_char(&static_var);
@@ -82,9 +91,9 @@ char	*get_next_line(int fd)
 	}
 	if (ft_strchr(static_var, '\n'))
 	{
-		return (trim_end_line(static_var));
+		return (trim_other_line(&static_var));
 	}
-	return (*static_var);
+	return (get_last_line(&static_var));
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 21:52:08 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:17:08 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static	void free_potr_char(char **str);
  * @param strin The string that will have it's end trimmed
  * @return The string trimmed with everything after '\\n' removed 
  */
-static char	*trim_end_line(char **strin);
+static char	*trim_other_line(char **strin);
 
 /**
  * @brief Reads the file descriptor from a BUFFER_SIZE piece to another 
@@ -106,7 +106,7 @@ static char	*trim_end_line(char **strin);
  * @param size_read The size that was red from file descriptor
  * @return The part of the file that was read 
  */
-char	*hold_text(int fd, char *buffer, char *static_str, int *size_read);
+char	*read_until_new_line(int fd, char *buffer, char *static_str, int *size_read);
 
 /**
  * @brief Reads a line from a file descriptor
