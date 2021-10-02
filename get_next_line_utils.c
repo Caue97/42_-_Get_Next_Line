@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:50 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 16:12:26 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 23:17:21 by diazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub_strng;
 	size_t	size_og;
 	size_t	count;
-
+	
+	
 	if (!s)
-		return (0);
+		return (NULL);
 	size_og = ft_strlen(s);
 	if (start > size_og)
 		return (ft_strdup(""));
 	if (start + len > size_og)
-	{
 		len = size_og - start;
-	}
 	sub_strng = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub_strng)
 		return (NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diazeved <contato.diegoazevedo@gmail.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 22:46:40 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:00:43 by diazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "get_next_line.h"
 #include <fcntl.h> //DELETE FOR EVALUATION
-#include <stdio.h> //DELETE FOR EVALUATION
+#include <stdio.h> //DELETE FOR EVALUATION // REMOVE MAIN
 #include <stdlib.h>
 
 /**
@@ -41,6 +41,7 @@ static char	*trim_other_line(char **strin)
 	char	*s_holder;
 	size_t	counter;
 
+	cut_line = NULL;
 	counter = 0;
 	while ((*strin)[counter] && (*strin)[counter] != '\n')
 	{
@@ -57,9 +58,13 @@ static char *get_last_line(char **strin)
 {
 	char *helping;
 	
-	helping = *strin;
-	free_potr_char(strin);
-	return (helping);
+	if (!ft_strchr(*strin, '\n') && **strin)
+	{
+		helping = ft_strdup(*strin);
+		free_potr_char(strin);
+		return (helping);
+	}
+	return (NULL);	
 }
 
 char	*read_until_new_line(int fd, char *buffer, char *static_str, int *size_read)
@@ -86,9 +91,8 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	static char	*static_var;
 
-	read_bytes = 0;
 	buffer = NULL;
-	if (fd < 0 || read(fd, NULL, 0) == -1 || BUFFER_SIZE < 1 || buffer == NULL)
+	if (fd < 0 || read(fd, NULL, 0) < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffer == NULL)
@@ -107,22 +111,22 @@ char	*get_next_line(int fd)
 		return (trim_other_line(&static_var));
 	}
 	return (get_last_line(&static_var));
+	
 }
 
-int	main(void)
-{
-	char	*str;
-	int		fd;
-
-	fd = open("poema", O_RDONLY);
-	while (1)
-	{
-		str = get_next_line(fd);
-		if (!str)
-			break ;
-		printf("%s", str);
-		//free(str);
-		break ;
-	}
-	return (0);
-}
+//int	main(void)
+//{
+//	char	*str;
+//	int		fd;
+//	fd = open("poema", O_RDONLY);
+//	while (1)
+//	{
+//		str = get_next_line(fd);
+//		if (!str)
+//			break ;
+//		printf("%s", str);
+//		free(str);
+//		//break ;
+//	}
+//	return (0);
+//}
