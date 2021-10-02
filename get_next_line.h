@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 22:17:08 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:27:29 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ static	void free_potr_char(char **str);
  * @return The string trimmed with everything after '\\n' removed 
  */
 static char	*trim_other_line(char **strin);
+
+static char *get_last_line(char **strin);
 
 /**
  * @brief Reads the file descriptor from a BUFFER_SIZE piece to another 
