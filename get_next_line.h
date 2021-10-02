@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:59 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 22:27:29 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:46:56 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * in the string s, or NULL if the character is not found.
  */
 char	*ft_strchr(const char *strin, int char_search);
-
-/**
- * @brief Free's the memory of the char pointer received and puts it's contents 
- * to zero
- *
- * @param str The char pointer to free
- */
-static	void free_potr_char(char **str);
-
-/**
- * @brief Removes the part of the char pointer after the '\\n' (line break)
- *
- * @param strin The string that will have it's end trimmed
- * @return The string trimmed with everything after '\\n' removed 
- */
-static char	*trim_other_line(char **strin);
-
-static char *get_last_line(char **strin);
 
 /**
  * @brief Reads the file descriptor from a BUFFER_SIZE piece to another 

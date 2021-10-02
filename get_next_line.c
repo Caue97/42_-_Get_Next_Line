@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:32:56 by felcaue-          #+#    #+#             */
-/*   Updated: 2021/10/01 22:30:58 by felcaue-         ###   ########.fr       */
+/*   Updated: 2021/10/01 22:46:40 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,26 @@
 #include "get_next_line.h"
 #include <fcntl.h> //DELETE FOR EVALUATION
 #include <stdio.h> //DELETE FOR EVALUATION
+#include <stdlib.h>
 
+/**
+ * @brief Free's the memory of the char pointer received and puts it's contents 
+ * to zero
+ *
+ * @param str The char pointer to free
+ */
 static void free_potr_char(char **str)
 {
 	free (*str);
 	*str = NULL;
 }
 
+/**
+ * @brief Removes the part of the char pointer after the '\\n' (line break)
+ *
+ * @param strin The string that will have it's end trimmed
+ * @return The string trimmed with everything after '\\n' removed 
+ */
 static char	*trim_other_line(char **strin)
 {
 	char	*cut_line;
